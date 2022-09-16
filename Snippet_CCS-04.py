@@ -47,9 +47,19 @@ print("ClydeBank Coffee Shop Simulator 4000, Version 1.00")
 print("Copyright (C) 2022 ClydeBank Media, All Rights Reserved.\n")
 print("Let's collect some information before we start the game.\n")
 
-# Get name and shop name
-name = input("What is your name? ")
-shop_name = input("What do you want to name your coffee shop? ")
+# Get name and shop name using the following approach:
+# 1. Set name and shop_name to False
+# 2. Use while not name and shop_name to continue to prompt for a non-empty string
+
+name = False
+while not name:
+    name = input("What is your name? ")
+
+shop_name = False
+while not shop_name:
+    shop_name = input("What do you want to name your coffee shop? ")
+
+# We have what we need, so let's get started!
 
 print("\nOk, let's get started. Have fun!")
 
@@ -64,18 +74,24 @@ while running:
     temperature = randint(20, 90)
 
     # Display the cash and weather
-    print("You have $" + str(cash) + " cash and it's " + str(temperature) + " degrees.")
-    print("You have coffee on hand to make " + str(coffee) + " cups.\n")
+    print("You have $" + str(cash) +
+          " cash on hand and the temperature is " + str(temperature) + ".")
+    print("You have enough coffee on hand to make " + str(coffee) + " cups.\n")
 
     # Get price of a cup of coffee
     cup_price = input("What do you want to charge per cup of coffee? ")
 
     # Get price of a cup of coffee
     print("\nYou can buy advertising to help promote sales.")
-    advertising = input("How much advertising do you want to buy? (0 for none)? ")
+    advertising = input(
+        "How much do you want to spend on advertising (0 for none)? ")
 
     # Convert advertising into a float
-    advertising = float(advertising)
+    # If it fails, assign it to 0
+    try:
+        advertising = float(advertising)
+    except ValueError:
+        advertising = 0
 
     # Deduct advertising from cash on hand
     cash -= advertising
