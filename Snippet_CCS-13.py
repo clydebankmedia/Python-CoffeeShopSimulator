@@ -25,7 +25,7 @@ if Path(CoffeeShopSimulator.SAVE_FILE).is_file():
             # We don't need to run the game again
             run_game = False
     else:
-        print("HINT: If you don't want to see this prompt again, remove the savegame.dat file.\n")
+        print("HINT: If you don't want to see this prompt again, remove the " + CoffeeShopSimulator.SAVE_FILE + " file.\n")
 
 if run_game:
     # Create the game object and run it!
