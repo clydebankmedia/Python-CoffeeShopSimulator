@@ -9,9 +9,6 @@ class CoffeeShopSimulator:
     TEMP_MIN = 20
     TEMP_MAX = 90
 
-    # Faux temp distributions. We'll do this better
-    # later with a bell curve, but for now a quick hack
-
     def __init__(self, player_name, shop_name):
 
         # Set player and coffee shop names
