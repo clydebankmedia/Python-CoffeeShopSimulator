@@ -1,5 +1,6 @@
 # ClydeBank Coffee Shop Simulator 4000
 # Copyright 2022 (C) ClydeBank Media, All Rights Reserved.
+# Proving this works
 
 import pickle
 import re
@@ -15,7 +16,9 @@ print("Copyright (C) 2022 ClydeBank Media, All Rights Reserved.\n")
 run_game = True
 if Path(CoffeeShopSimulator.SAVE_FILE).is_file():
     # Save game exists, do they want to load it?
-    response = CoffeeShopSimulator.prompt("There's a saved game. Do you want to load it? (Y/N)", True)
+    response = CoffeeShopSimulator.prompt(
+        "There's a saved game. Do you want to load it? (Y/N)", True
+    )
     if re.search("y", response, re.IGNORECASE):
         # Load the game and run!
         with open(CoffeeShopSimulator.SAVE_FILE, mode="rb") as f:
@@ -24,7 +27,9 @@ if Path(CoffeeShopSimulator.SAVE_FILE).is_file():
             # We don't need to run the game again
             run_game = False
     else:
-        print("HINT: If you don't want to see this prompt again, remove the savegame.dat file.\n")
+        print(
+            "HINT: If you don't want to see this prompt again, remove the savegame.dat file.\n"
+        )
 
 if run_game:
     # Create the game object and run it!
